@@ -76,3 +76,13 @@
   document.addEventListener("DOMContentLoaded", keepLeaderboardOnHomeOnly);
   keepLeaderboardOnHomeOnly();
 }());
+
+/* The original module may leave an obsolete duplicate entry beneath the ending actions. */
+(function () {
+  function removeLegacyEndingEntry() {
+    if (!document.querySelector(".ending-screen")) return;
+    document.querySelectorAll(".leaderboard-entry").forEach(function (node) { node.remove(); });
+  }
+  new MutationObserver(removeLegacyEndingEntry).observe(document.documentElement, { childList: true, subtree: true });
+  removeLegacyEndingEntry();
+}());
