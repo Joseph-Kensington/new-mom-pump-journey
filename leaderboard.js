@@ -172,4 +172,4 @@
   document.addEventListener("DOMContentLoaded", addEntryButton);
 }());
 
-(function(){ if (!document.querySelector('script[data-journey-rank-v2]')) { var s=document.createElement('script'); s.src='./leaderboard-v2.js'; s.defer=true; s.dataset.journeyRankV2='1'; document.head.appendChild(s); } }());
+(function(){ if (!document.querySelector('script[data-journey-rank-v2]')) { var s=document.createElement('script'); s.src='./leaderboard-v2.js?v=4'; s.defer=true; s.dataset.journeyRankV2='1'; document.head.appendChild(s); } }());
