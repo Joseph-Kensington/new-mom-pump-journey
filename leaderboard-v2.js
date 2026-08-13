@@ -66,3 +66,13 @@
   new MutationObserver(observe).observe(document.documentElement, { childList: true, subtree: true });
   document.addEventListener("DOMContentLoaded", observe); observe();
 }());
+/* Keep the leaderboard out of the nine story scenes. */
+(function () {
+  function keepLeaderboardOnHomeOnly() {
+    if (!document.querySelector(".story-screen")) return;
+    document.querySelectorAll(".journey-rank-home").forEach(function (node) { node.remove(); });
+  }
+  new MutationObserver(keepLeaderboardOnHomeOnly).observe(document.documentElement, { childList: true, subtree: true });
+  document.addEventListener("DOMContentLoaded", keepLeaderboardOnHomeOnly);
+  keepLeaderboardOnHomeOnly();
+}());
