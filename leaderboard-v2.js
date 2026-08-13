@@ -86,3 +86,10 @@
   new MutationObserver(removeLegacyEndingEntry).observe(document.documentElement, { childList: true, subtree: true });
   removeLegacyEndingEntry();
 }());
+
+/* CSS fallback: never paint the home leaderboard inside a story scene. */
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".story-screen .journey-rank-home{display:none!important}";
+  document.head.appendChild(style);
+}());
